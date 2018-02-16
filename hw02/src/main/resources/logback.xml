@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <Pattern>
+                    %d{dd.MM.yy HH:mm:ss} %highlight(%-5level) %logger{25} - %msg%n
+                </Pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <logger name="ru.sberbank" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="ch.qos.logback" level="error" additivity="false">
+         <appender-ref ref="STDOUT" />
+    </logger>
+
+    <root level="error">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>

@@ -27,6 +27,5 @@ public class URLReader {
              System.err.println("Not valid url");
              return false;
          }
-
      }
 }

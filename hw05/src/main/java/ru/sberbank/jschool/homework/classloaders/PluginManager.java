@@ -23,11 +23,11 @@ public class PluginManager {
      *                                 or it contains no .class files
      */
     public Plugin loadPlugin(String pluginName) throws PluginNotFoundException {
-        return loadPluginWithCondition(pluginName,0);
+        return loadPluginWithCondition(pluginName, 0);
     }
 
     public Plugin loadPlugin(String pluginName, int offset) throws PluginNotFoundException {
-        return loadPluginWithCondition(pluginName,offset);
+        return loadPluginWithCondition(pluginName, offset);
     }
 
     private Plugin loadPluginWithCondition(String pluginName, int offset) throws PluginNotFoundException {
@@ -35,10 +35,10 @@ public class PluginManager {
         ClassLoader currentClassLoader = offset == 0 ? new SimpleClassLoader(path) :
                 new EncryptedClassLoader(getClass().getClassLoader().getParent(), path, offset);
         try {
-            String className = findClass(path).replaceAll(".class","");
+            String className = findClass(path).replaceAll(".class", "");
             System.out.println(className);
             return (Plugin) currentClassLoader.loadClass(className).newInstance();
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new PluginNotFoundException("couldn't locate plugin " + pluginName);
         }
     }

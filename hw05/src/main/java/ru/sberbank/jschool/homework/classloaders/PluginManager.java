@@ -27,9 +27,8 @@ public class PluginManager {
         String path = Paths.get(rootDirectory).resolve(pluginName).toString();
         String className = findClass(path).replaceAll(".class", "");
         SimpleClassLoader simpleClassLoader = new SimpleClassLoader(path);
-        System.out.println(path + " " + className);
         try {
-            return (Plugin)simpleClassLoader.loadClass(className).newInstance();
+            return (Plugin) simpleClassLoader.loadClass(className).newInstance();
         } catch (Exception e) {
             throw new PluginNotFoundException("couldn't locate plugin " + pluginName);
         }
@@ -41,7 +40,7 @@ public class PluginManager {
         EncryptedClassLoader encryptedClassLoader = new EncryptedClassLoader(getClass().getClassLoader().getParent(),
                 path, offset);
         try {
-            return (Plugin)encryptedClassLoader.loadClass(className).newInstance();
+            return (Plugin) encryptedClassLoader.loadClass(className).newInstance();
         } catch (Exception e) {
             throw new PluginNotFoundException("couldn't locate plugin " + pluginName);
         }

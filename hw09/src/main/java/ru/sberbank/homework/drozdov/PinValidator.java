@@ -1,4 +1,4 @@
-package ru.sberbank.homework.drozdov.hw3_1;
+package ru.sberbank.homework.drozdov;
 
 import java.util.concurrent.TimeUnit;
 

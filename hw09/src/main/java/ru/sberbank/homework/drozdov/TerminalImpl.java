@@ -1,4 +1,4 @@
-package ru.sberbank.homework.drozdov.hw3_1;
+package ru.sberbank.homework.drozdov;
 
 /**
  * Created by Gleb on 19.02.2018

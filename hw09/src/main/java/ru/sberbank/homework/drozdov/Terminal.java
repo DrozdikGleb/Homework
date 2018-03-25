@@ -1,4 +1,4 @@
-package ru.sberbank.homework.drozdov.hw3_1;
+package ru.sberbank.homework.drozdov;
 
 public interface Terminal {
     void putMoney(long amount);

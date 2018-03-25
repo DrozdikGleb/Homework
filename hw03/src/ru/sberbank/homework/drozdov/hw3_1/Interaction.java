@@ -13,14 +13,12 @@ public class Interaction {
         while (true) {
             System.out.println("Введите PIN");
             try {
-                boolean pinChecker = false;
-                while (!pinChecker) {
-                    try {
-                        pinChecker = terminal.checkPin(input.nextLine());
-                    } catch (AccountIsLockedException | WrongPinException e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
+                terminal.checkPin(input.nextLine());
+            } catch (AccountIsLockedException | WrongPinException e) {
+                System.out.println(e.getMessage());
+                continue;
+            }
+            try {
                 System.out.println("Введите действие\n" +
                         "1 - положить деньги\n" +
                         "2 - cнять деньги\n" +

@@ -34,6 +34,16 @@ public class CommandSequence {
         return this;
     }
 
+    public CommandSequence addDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public void fail() {
+        failed = true;
+    }
+}
+
     public void fail() {
         failed = true;
     }
